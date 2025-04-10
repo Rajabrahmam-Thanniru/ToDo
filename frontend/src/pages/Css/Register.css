@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.input_field {
+  @apply bg-white w-sm h-10 border-2 border-[#128696] rounded-md px-3 text-base outline-none ;
+}
+
+.passwordF {
+  @apply flex items-center border-2 border-[#128696] w-[25rem] bg-white rounded-md px-2;
+}
+
+.error-text {
+  @apply text-red-500 text-sm;
+}
