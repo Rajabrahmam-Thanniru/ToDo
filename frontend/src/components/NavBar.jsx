@@ -27,12 +27,12 @@ const NavBar = () => {
       <h2 className="text-white text-xl font-bold">TodoApp</h2>
 
       {/* Center Nav Links */}
-      <ul className="flex space-x-6 justify-center items-center flex-1">
+      <ul className="flex space-x-10 justify-center items-center flex-1 text-lg">
         <li>
           <Link
             to="/"
             className={`text-white hover:text-gray-300 ${
-              path === "/" ? "text-lg font-semibold underline" : "text-base"
+              path === "/" ? "text-xl font-semibold underline" : "text-lg"
             }`}
           >
             Home
@@ -43,8 +43,8 @@ const NavBar = () => {
             to="/show-tasks"
             className={`text-white hover:text-gray-300 ${
               path === "/show-tasks"
-                ? "text-lg font-semibold underline"
-                : "text-base"
+                ? "text-xl font-semibold underline"
+                : "text-lg"
             }`}
           >
             Show Tasks
@@ -55,8 +55,8 @@ const NavBar = () => {
             to="/post-task"
             className={`text-white hover:text-gray-300 ${
               path === "/post-task"
-                ? "text-lg font-semibold underline"
-                : "text-base"
+                ? "text-xl font-semibold underline"
+                : "text-lg"
             }`}
           >
             Add Task
@@ -67,8 +67,8 @@ const NavBar = () => {
             to="/profile"
             className={`text-white hover:text-gray-300 ${
               path === "/profile"
-                ? "text-lg font-semibold underline"
-                : "text-base"
+                ? "text-xl font-semibold underline"
+                : "text-lg"
             }`}
           >
             Profile

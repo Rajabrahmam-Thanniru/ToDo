@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 function ShowTasks() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -95,7 +97,7 @@ function ShowTasks() {
             >
               <div className="absolute top-2 right-2 flex space-x-2">
                 <button
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-gray-400 hover:text-blue-700"
                   onClick={() =>
                     navigate("/edit-task", {
                       state: {
@@ -106,13 +108,13 @@ function ShowTasks() {
                     })
                   }
                 >
-                  ✏️
+                  <FontAwesomeIcon icon={faPen} />
                 </button>
                 <button
-                  className="text-red-500 hover:text-red-700"
+                  className="text-gray-400 hover:text-red-700"
                   onClick={() => deleteTask(task.taskId)}
                 >
-                  🗑️
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </div>
 

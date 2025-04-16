@@ -1,10 +1,10 @@
+// controllers/editController.js
+
 const Task = require("../models/postTaskModel");
 
 const EditToDo = async (req, res) => {
-  const userId = req.params.userId;
-  const taskId = req.params.taskId;
+  const { userId, taskId } = req.params;
   const { taskName, taskText } = req.body;
-  console.log(req.body);
 
   if (!userId || !taskId) {
     return res.status(400).json({
@@ -13,15 +13,9 @@ const EditToDo = async (req, res) => {
     });
   }
 
-  if (!taskName || !taskText) {
-    return res.status(400).json({
-      success: false,
-      message: "Task Name and Task Text are required",
-    });
-  }
-
   try {
     const taskDoc = await Task.findById(userId);
+
     if (!taskDoc) {
       return res.status(404).json({
         success: false,
@@ -36,10 +30,8 @@ const EditToDo = async (req, res) => {
       });
     }
 
-    const existingTask = taskDoc.userTasks.get(taskId);
-
+    // Update task
     taskDoc.userTasks.set(taskId, {
-      //...existingTask, // keep createdAt
       taskName,
       taskText,
     });
@@ -50,8 +42,8 @@ const EditToDo = async (req, res) => {
       success: true,
       message: "Task updated successfully",
     });
-  } catch (e) {
-    console.error("Error updating task", e);
+  } catch (error) {
+    console.error("Error updating task:", error);
     res.status(500).json({
       success: false,
       message: "Server error",
